@@ -2,6 +2,7 @@ import { mainColor } from "@/styles/themes";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
+import Star from "../Icon/Star";
 
 const AboutMe = () => {
   return (
@@ -52,7 +53,8 @@ const AboutMe = () => {
 export default AboutMe;
 
 const Container = styled.div`
-  margin-bottom: 80px;
+  height: 100%;
+  margin-bottom: 180px;
 `;
 
 const Intro = styled.div`
