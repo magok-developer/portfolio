@@ -51,7 +51,7 @@ const Checkbox = styled.input`
     position: relative;
     width: 20px;
     height: 20px;
-    top: 2px;
+    top: 2.5px;
     left: 2px;
     border-radius: 50%;
     background: #2f3640;
