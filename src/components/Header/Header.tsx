@@ -3,6 +3,9 @@
 import styled from "styled-components";
 import ThemeToggle from "../Toggle/ThemeToggle";
 import { mainColor } from "@/styles/themes";
+import Image from "next/image";
+import MenuToggle from "../Toggle/MenuToggle";
+import { useState } from "react";
 
 type Props = {
   onClick: () => void;
@@ -12,7 +15,9 @@ type Props = {
 const Header = ({ onClick, isChecked }: Props) => {
   return (
     <Container>
-      <LeftSection></LeftSection>
+      <LeftSection>
+        <MenuToggle isDarkMode={isChecked} />
+      </LeftSection>
       <RightSection>
         <LinkWrap>
           <a href='https://github.com/magok-developer' target='_blank'>
@@ -47,7 +52,7 @@ export default Header;
 
 const Container = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   top: 0;
   width: 100%;
   background: inherit;
