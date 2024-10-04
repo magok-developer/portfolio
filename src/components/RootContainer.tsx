@@ -35,4 +35,5 @@ export default RootContainer;
 
 const Body = styled.div`
   padding: 80px;
+  position: relative;
 `;
