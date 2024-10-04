@@ -39,7 +39,8 @@ const AboutMe = () => {
           <div className='about-wrap'>
             <span className='title'>Career</span>
             <span className='content'>
-              Terra International, Research Engineer
+              Terra International, Research Engineer{" "}
+              <span className='period'>2024.06 ~ now</span>
             </span>
           </div>
         </LeftSection>
@@ -135,5 +136,10 @@ const LeftSection = styled.div`
 
   .content {
     font-size: 1.2vw;
+  }
+
+  .period {
+    font-size: 0.7vw;
+    color: ${mainColor.skyBlue};
   }
 `;
