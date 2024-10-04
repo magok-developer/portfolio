@@ -9,6 +9,7 @@ const SkillCard = ({ data }: Props) => {
   return (
     <Container>
       <img src={data.url} alt={data.title} />
+      <Title>{data.title}</Title>
       <Description>{data.description}</Description>
     </Container>
   );
@@ -44,6 +45,13 @@ const Container = styled.div`
 `;
 
 const Description = styled.div`
+  margin-top: 8px;
+  font-size: 12px;
+  display: none;
+  text-align: center;
+`;
+
+const Title = styled.div`
   margin-top: 8px;
   font-size: 12px;
   display: none;
