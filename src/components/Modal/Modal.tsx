@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { useTheme } from "styled-components";
 import { ProjectData } from "../Swiper/Swiper";
 import Image from "next/image";
+import { mainColor } from "@/styles/themes";
 
 type ModalProps = {
   isOpen: boolean;
@@ -10,6 +11,17 @@ type ModalProps = {
 };
 
 const Modal = ({ isOpen, onClose, data }: ModalProps) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // 페이지 스크롤 막기
+    } else {
+      document.body.style.overflow = "auto"; // 페이지 스크롤 다시 활성화
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // 모달이 닫힐 때 원래 상태로 복구
+    };
+  }, [isOpen]);
   if (!isOpen) return null;
   const theme = useTheme();
   const isDark = theme.background === "#1D1B1B" ? "dark" : "light";
@@ -58,6 +70,57 @@ const Modal = ({ isOpen, onClose, data }: ModalProps) => {
             )}
           </div>
         </TopSection>
+        <Line />
+        <BottomSection>
+          <Planning>
+            <div className='title-wrap'>
+              <Image
+                src='/icon/planning.svg'
+                alt='planning'
+                width={24}
+                height={24}
+              />
+              <div className='title'>기획</div>
+            </div>
+            <div className='text'>{data.planning}</div>
+          </Planning>
+          <MyPage>
+            <div className='title-wrap'>
+              <Image
+                src='/icon/page.svg'
+                alt='planning'
+                width={26}
+                height={26}
+              />
+              <div className='title'>구현 페이지</div>
+            </div>
+
+            {data.myPage.map((m) => (
+              <div className='text-wrap'>
+                <div className='dot' />
+                <div className='text'>{m.text}</div>
+              </div>
+            ))}
+          </MyPage>
+          <Get>
+            <div className='title-wrap'>
+              <Image
+                src='/icon/emotion.svg'
+                alt='planning'
+                width={22}
+                height={22}
+              />
+              <div className='title'>느낀점</div>
+            </div>
+
+            {data.get.map((g) => (
+              <div className='text-wrap'>
+                <div className='dot' />
+                <div className='text'>{g.text}</div>
+              </div>
+            ))}
+          </Get>
+        </BottomSection>
       </ModalContent>
     </ModalOverlay>
   );
@@ -87,7 +150,22 @@ const ModalContent = styled.div<{ isDark: string }>`
   border-radius: 8px;
   padding: 40px;
   z-index: 9999;
-  overflow: "hidden";
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${mainColor.blue};
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: ${mainColor.gray};
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
 `;
 
 const TopSection = styled.div`
@@ -131,3 +209,52 @@ const CloseButton = styled.div`
   font-size: 12px;
   cursor: pointer;
 `;
+
+const Line = styled.div`
+  margin: 20px 0;
+  width: 100%;
+  height: 0.6px;
+  background-color: ${mainColor.lightGray};
+`;
+
+const BottomSection = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 40px;
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: ${mainColor.skyBlue};
+  }
+  .title-wrap {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .text-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .text {
+    font-size: 14px;
+    white-space: pre-wrap;
+    line-height: 20px;
+  }
+`;
+
+const Planning = styled.div``;
+
+const MyPage = styled.div``;
+
+const Get = styled.div``;
