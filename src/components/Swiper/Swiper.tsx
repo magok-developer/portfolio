@@ -11,6 +11,7 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 import styled from "styled-components";
 import { mainColor } from "@/styles/themes";
 import Modal from "../Modal/Modal";
+import { projectData } from "../../../public/data/projectData";
 
 export type ProjectData = {
   id: number;
@@ -20,8 +21,9 @@ export type ProjectData = {
   position: string;
   stack: { url: string }[];
   intro: string;
-  summary: string;
-  get: string;
+  planning: string;
+  myPage: { text: string }[];
+  get: { text: string }[];
   git: string;
   url: string;
 };
@@ -29,7 +31,7 @@ type Props = {
   data: ProjectData[];
 };
 
-const SwiperComponent = ({ data }: Props) => {
+const SwiperComponent = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedImageData, setSelectedImageData] =
     useState<ProjectData | null>(null);
@@ -68,7 +70,7 @@ const SwiperComponent = ({ data }: Props) => {
         }}
         className='mySwiper'
       >
-        {data.map((d) => (
+        {projectData.map((d) => (
           <SwiperSlide key={d.id}>
             <img src={d.src} onClick={() => handleImageClick(d)} />
             <Title>{d.title}</Title>
@@ -96,15 +98,15 @@ const Container = styled.div`
   }
 
   .swiper-slide {
-    width: 380px;
-    height: 200px;
+    width: 29vw;
+    /* height: 200px; */
   }
 
   .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     cursor: pointer;
   }
   .swiper-pagination-bullet {
@@ -126,6 +128,11 @@ const Container = styled.div`
 
   .swiper-button-prev {
     left: -2px;
+  }
+
+  .swiper-slide-shadow-left,
+  .swiper-slide-shadow-right {
+    background-image: none;
   }
 `;
 
