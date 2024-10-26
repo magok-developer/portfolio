@@ -38,10 +38,16 @@ const AboutMe = () => {
           </div>
           <div className='about-wrap'>
             <span className='title'>Career</span>
-            <span className='content'>
-              Terra International, Research Engineer{" "}
-              <span className='period'>2024.06 ~ now</span>
-            </span>
+            <div className='career'>
+              <span className='content'>
+                Builton, Pro<span className='none-dev'>non-development</span>
+                <span className='period'>2019.08 ~ 2023.08</span>
+              </span>
+              <span className='content'>
+                Terra International, Research Engineer
+                <span className='period'>2024.06 ~ 2024.10</span>
+              </span>
+            </div>
           </div>
         </LeftSection>
 
@@ -127,6 +133,16 @@ const LeftSection = styled.div`
     gap: 20px;
   }
 
+  .career {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .none-dev {
+      font-size: 0.7rem;
+      color: ${mainColor.red};
+    }
+  }
+
   .title {
     color: ${mainColor.blue};
     font-size: 1.5vw;
@@ -136,10 +152,13 @@ const LeftSection = styled.div`
 
   .content {
     font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
   .period {
-    font-size: 0.7vw;
+    font-size: 0.7rem;
     color: ${mainColor.skyBlue};
   }
 `;
