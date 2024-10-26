@@ -3,8 +3,11 @@ import "./globals.css";
 import { Noto_Sans_KR } from "next/font/google";
 
 export const metadata = {
-  title: "Next.js App",
-  description: "Next.js App with Light and Dark Theme",
+  title: "JIWON PORTFOLIO",
+  description: "프론트엔드 개발자 하지원 포트폴리오",
+  icons: {
+    icon: "/icon/logo.svg",
+  },
 };
 
 const noto = Noto_Sans_KR({
