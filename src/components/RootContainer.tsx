@@ -7,10 +7,16 @@ import GlobalStyle from "@/styles/GlobalStyle";
 import Header from "./Header/Header";
 
 const RootContainer = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    return savedTheme === "light" ? lightTheme : darkTheme;
-  });
+  const [theme, setTheme] = useState(darkTheme);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme");
+      setTheme(savedTheme === "light" ? lightTheme : darkTheme);
+      setIsMounted(true);
+    }
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prevTheme) =>
@@ -19,8 +25,14 @@ const RootContainer = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem("theme", theme === darkTheme ? "dark" : "light");
-  }, [theme]);
+    if (isMounted) {
+      localStorage.setItem("theme", theme === darkTheme ? "dark" : "light");
+    }
+  }, [theme, isMounted]);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <ThemeProvider theme={theme}>
