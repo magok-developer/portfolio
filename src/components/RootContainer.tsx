@@ -1,32 +1,28 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { darkTheme, lightTheme } from "@/styles/themes";
-import styled, { ThemeProvider } from "styled-components";
-import GlobalStyle from "@/styles/GlobalStyle";
-import Header from "./Header/Header";
+import { useEffect, useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { useThemeStore } from '@/store/themeStore';
+import GlobalStyle from '@/styles/GlobalStyle';
+import Header from './Header/Header';
+import { darkTheme, lightTheme } from '@/styles/themes';
 
 const RootContainer = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState(darkTheme);
+  const { theme, toggleTheme, setTheme } = useThemeStore();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme");
-      setTheme(savedTheme === "light" ? lightTheme : darkTheme);
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      const themeToSet = savedTheme === 'light' ? 'light' : 'dark';
+      setTheme(themeToSet);
       setIsMounted(true);
     }
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme === lightTheme ? darkTheme : lightTheme
-    );
-  };
+  }, [setTheme]);
 
   useEffect(() => {
     if (isMounted) {
-      localStorage.setItem("theme", theme === darkTheme ? "dark" : "light");
+      localStorage.setItem('theme', theme);
     }
   }, [theme, isMounted]);
 
@@ -35,9 +31,9 @@ const RootContainer = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle theme={theme} />
-      <Header onClick={toggleTheme} isChecked={theme === lightTheme} />
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+      <GlobalStyle theme={theme === 'dark' ? darkTheme : lightTheme} />
+      <Header onClick={toggleTheme} isChecked={theme === 'light'} />
       <Body>{children}</Body>
     </ThemeProvider>
   );
