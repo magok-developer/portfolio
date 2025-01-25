@@ -1,109 +1,106 @@
-import React from "react";
-import styled, { useTheme } from "styled-components";
-import SkillCard from "../Card/SkillCard";
+import React from 'react';
+import styled, { useTheme } from 'styled-components';
+import SkillCard from '../Card/SkillCard';
+import { useThemeStore } from '@/store/themeStore';
 
 const Stacks = () => {
-  const theme = useTheme();
+  const { theme, toggleTheme, setTheme } = useThemeStore();
+
+  console.log(theme);
 
   const skill = [
     {
-      url: "/image/skill/html.svg",
-      title: "HTML",
-      description: "설명설명",
+      url: '/image/skill/html.svg',
+      title: 'HTML',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/css.svg",
-      title: "CSS",
-      description: "설명설명",
+      url: '/image/skill/css.svg',
+      title: 'CSS',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/js.svg",
-      title: "JavaScript",
-      description: "설명설명",
+      url: '/image/skill/js.svg',
+      title: 'JavaScript',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/ts.svg",
-      title: "TypeScript",
-      description: "설명설명",
+      url: '/image/skill/ts.svg',
+      title: 'TypeScript',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/react.svg",
-      title: "React",
-      description: "설명설명",
+      url: '/image/skill/react.svg',
+      title: 'React',
+      description: '설명설명',
     },
     {
-      url:
-        theme.background === "#1D1B1B"
-          ? "/image/skill/nextjs-white.svg"
-          : "/image/skill/nextjs-black.svg",
-      title: "Next.JS",
-      description: "설명설명",
+      url: theme === 'dark' ? '/image/skill/nextjs-white.svg' : '/image/skill/nextjs-black.svg',
+      title: 'Next.JS',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/Emotion.svg",
-      title: "emotion",
-      description: "설명설명",
+      url: '/image/skill/Emotion.svg',
+      title: 'emotion',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/StyledComponents.svg",
-      title: "Styled-Components",
-      description: "설명설명",
+      url: '/image/skill/StyledComponents.svg',
+      title: 'Styled-Components',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/zustand.svg",
-      title: "zustand",
-      description: "설명설명",
+      url: '/image/skill/zustand.svg',
+      title: 'zustand',
+      description: '설명설명',
     },
   ];
 
   const tool = [
     {
-      url:
-        theme.background === "#1D1B1B"
-          ? "/image/skill/github-white.svg"
-          : "/image/skill/github-black.svg",
-      title: "Github",
-      description: "설명설명",
+      url: theme === 'dark' ? '/image/skill/github-white.svg' : '/image/skill/github-black.svg',
+      title: 'Github',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/gitlab.svg",
-      title: "Gitlab",
-      description: "설명설명",
+      url: '/image/skill/gitlab.svg',
+      title: 'Gitlab',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/postman.svg",
-      title: "PostMan",
-      description: "설명설명",
+      url: '/image/skill/postman.svg',
+      title: 'PostMan',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/swagger.svg",
-      title: "Swagger",
-      description: "설명설명",
+      url: '/image/skill/swagger.svg',
+      title: 'Swagger',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/vscode.svg",
-      title: "VSCode",
-      description: "설명설명",
+      url: '/image/skill/vscode.svg',
+      title: 'VSCode',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/Discord.svg",
-      title: "Discord",
-      description: "설명설명",
+      url: '/image/skill/Discord.svg',
+      title: 'Discord',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/figma.svg",
-      title: "Figma",
-      description: "설명설명",
+      url: '/image/skill/figma.svg',
+      title: 'Figma',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/Photoshop.svg",
-      title: "Photoshop",
-      description: "설명설명",
+      url: '/image/skill/Photoshop.svg',
+      title: 'Photoshop',
+      description: '설명설명',
     },
     {
-      url: "/image/skill/Illustrator.svg",
-      title: "Illustrator",
-      description: "설명설명",
+      url: '/image/skill/Illustrator.svg',
+      title: 'Illustrator',
+      description: '설명설명',
     },
   ];
 
@@ -112,7 +109,7 @@ const Stacks = () => {
       <Title>Stacks</Title>
       <FrontSkillSWrap>
         <div>Skill</div>
-        <div className='flex'>
+        <div className="flex">
           {skill.map((s, index) => (
             <SkillCard key={index} data={s} />
           ))}
@@ -120,7 +117,7 @@ const Stacks = () => {
       </FrontSkillSWrap>
       <ToolSkillWrap>
         <div>Tool</div>
-        <div className='flex'>
+        <div className="flex">
           {tool.map((s, index) => (
             <SkillCard key={index} data={s} />
           ))}
@@ -141,13 +138,16 @@ const Container = styled.div`
   height: 600px;
 
   .flex {
+    width: 100%;
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 `;
 
 const Title = styled.div`
+  width: 100%;
   font-size: 20px;
   font-weight: bold;
   display: flex;
@@ -155,14 +155,17 @@ const Title = styled.div`
 `;
 
 const FrontSkillSWrap = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 200px;
+  height: 240px;
 `;
 
 const ToolSkillWrap = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 240px;
 `;
