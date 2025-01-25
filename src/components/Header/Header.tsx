@@ -1,11 +1,9 @@
-"use client";
+'use client';
 
-import styled from "styled-components";
-import ThemeToggle from "../Toggle/ThemeToggle";
-import { mainColor } from "@/styles/themes";
-import Image from "next/image";
-import MenuToggle from "../Toggle/MenuToggle";
-import { useState } from "react";
+import styled from 'styled-components';
+import ThemeToggle from '../Toggle/ThemeToggle';
+import { mainColor } from '@/styles/themes';
+import MenuToggle from '../Toggle/MenuToggle';
 
 type Props = {
   onClick: () => void;
@@ -20,25 +18,22 @@ const Header = ({ onClick, isChecked }: Props) => {
       </LeftSection>
       <RightSection>
         <LinkWrap>
-          <a href='https://github.com/magok-developer' target='_blank'>
+          <a href="https://github.com/magok-developer" target="_blank">
             github
           </a>
 
-          <a href='https://velog.io/@jwha/posts' target='_blank'>
+          <a href="https://velog.io/@jwha/posts" target="_blank">
             blog
           </a>
 
           <a
-            href='https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%ED%95%98-83338725b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
-            target='_blank'
+            href="https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%ED%95%98-83338725b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            target="_blank"
           >
             linkedin
           </a>
 
-          <a
-            href='https://giddy-product-b00.notion.site/1248f4226cca4b8aaf0d694951985aad'
-            target='_blank'
-          >
+          <a href="https://giddy-product-b00.notion.site/1248f4226cca4b8aaf0d694951985aad" target="_blank">
             resume
           </a>
         </LinkWrap>
@@ -85,7 +80,7 @@ const LinkWrap = styled.div`
   }
   a::after {
     position: absolute;
-    content: "";
+    content: '';
     border-bottom: 2px solid ${mainColor.yellow};
     transition: width 0.3s ease-out;
     bottom: 0;

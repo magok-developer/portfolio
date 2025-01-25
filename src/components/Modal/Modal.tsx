@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import styled, { useTheme } from "styled-components";
-import { ProjectData } from "../Swiper/Swiper";
-import Image from "next/image";
-import { mainColor } from "@/styles/themes";
+import React, { useEffect } from 'react';
+import styled, { useTheme } from 'styled-components';
+import { ProjectData } from '../Swiper/Swiper';
+import Image from 'next/image';
+import { mainColor } from '@/styles/themes';
+import { useThemeStore } from '@/store/themeStore';
 
 type ModalProps = {
   isOpen: boolean;
@@ -13,56 +14,47 @@ type ModalProps = {
 const Modal = ({ isOpen, onClose, data }: ModalProps) => {
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"; // 페이지 스크롤 막기
+      document.body.style.overflow = 'hidden'; // 페이지 스크롤 막기
     } else {
-      document.body.style.overflow = "auto"; // 페이지 스크롤 다시 활성화
+      document.body.style.overflow = 'auto'; // 페이지 스크롤 다시 활성화
     }
 
     return () => {
-      document.body.style.overflow = "auto"; // 모달이 닫힐 때 원래 상태로 복구
+      document.body.style.overflow = 'auto'; // 모달이 닫힐 때 원래 상태로 복구
     };
   }, [isOpen]);
   if (!isOpen) return null;
-  const theme = useTheme();
-  const isDark = theme.background === "#1D1B1B" ? "dark" : "light";
+  const { theme, toggleTheme, setTheme } = useThemeStore();
 
   return (
     <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()} isDark={isDark}>
+      <ModalContent onClick={(e) => e.stopPropagation()} isDark={theme}>
         <CloseButton onClick={onClose}>×</CloseButton>
         <TopSection>
-          <span className='title'>{data.title}</span>
-          <span className='period'>{data.period}</span>
-          <div className='stack'>
+          <span className="title">{data.title}</span>
+          <span className="period">{data.period}</span>
+          <div className="stack">
             {data.stack.map((s) => (
               <img src={s.url} alt={s.url} />
             ))}
           </div>
-          <span className='intro'>{data.intro}</span>
-          <div className='image'>
-            <a href={data.git} target='_blank'>
+          <span className="intro">{data.intro}</span>
+          <div className="image">
+            <a href={data.git} target="_blank">
               <Image
-                src={
-                  isDark === "dark"
-                    ? "/image/skill/github-white.svg"
-                    : "/image/skill/github-black.svg"
-                }
-                alt='git'
+                src={theme === 'dark' ? '/image/skill/github-white.svg' : '/image/skill/github-black.svg'}
+                alt="git"
                 width={24}
                 height={24}
               />
             </a>
-            {data.url === "" ? (
+            {data.url === '' ? (
               <></>
             ) : (
-              <a href={data.url} target='_blank'>
+              <a href={data.url} target="_blank">
                 <Image
-                  src={
-                    isDark === "dark"
-                      ? "/icon/link-white.svg"
-                      : "/icon/link-black.svg"
-                  }
-                  alt='git'
+                  src={theme === 'dark' ? '/icon/link-white.svg' : '/icon/link-black.svg'}
+                  alt="git"
                   width={20}
                   height={20}
                 />
@@ -73,50 +65,35 @@ const Modal = ({ isOpen, onClose, data }: ModalProps) => {
         <Line />
         <BottomSection>
           <Planning>
-            <div className='title-wrap'>
-              <Image
-                src='/icon/planning.svg'
-                alt='planning'
-                width={24}
-                height={24}
-              />
-              <div className='title'>기획</div>
+            <div className="title-wrap">
+              <Image src="/icon/planning.svg" alt="planning" width={24} height={24} />
+              <div className="title">기획</div>
             </div>
-            <div className='text'>{data.planning}</div>
+            <div className="text">{data.planning}</div>
           </Planning>
           <MyPage>
-            <div className='title-wrap'>
-              <Image
-                src='/icon/page.svg'
-                alt='planning'
-                width={26}
-                height={26}
-              />
-              <div className='title'>구현 페이지</div>
+            <div className="title-wrap">
+              <Image src="/icon/page.svg" alt="planning" width={26} height={26} />
+              <div className="title">구현 페이지</div>
             </div>
 
             {data.myPage.map((m) => (
-              <div className='text-wrap'>
-                <div className='dot' />
-                <div className='text'>{m.text}</div>
+              <div className="text-wrap">
+                <div className="dot" />
+                <div className="text">{m.text}</div>
               </div>
             ))}
           </MyPage>
           <Get>
-            <div className='title-wrap'>
-              <Image
-                src='/icon/emotion.svg'
-                alt='planning'
-                width={22}
-                height={22}
-              />
-              <div className='title'>느낀점</div>
+            <div className="title-wrap">
+              <Image src="/icon/emotion.svg" alt="planning" width={22} height={22} />
+              <div className="title">느낀점</div>
             </div>
 
             {data.get.map((g) => (
-              <div className='text-wrap'>
-                <div className='dot' />
-                <div className='text'>{g.text}</div>
+              <div className="text-wrap">
+                <div className="dot" />
+                <div className="text">{g.text}</div>
               </div>
             ))}
           </Get>
@@ -144,8 +121,7 @@ const ModalOverlay = styled.div`
 const ModalContent = styled.div<{ isDark: string }>`
   width: 90%;
   height: 90%;
-  background-color: ${({ isDark }) =>
-    isDark === "dark" ? "#1D1B1B" : "#EDEDE9"};
+  background-color: ${({ isDark }) => (isDark === 'dark' ? '#1D1B1B' : '#EDEDE9')};
   position: relative;
   border-radius: 8px;
   padding: 40px;

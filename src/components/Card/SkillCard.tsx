@@ -1,6 +1,6 @@
-import Image from "next/image";
-import React from "react";
-import styled from "styled-components";
+import Image from 'next/image';
+import React from 'react';
+import styled from 'styled-components';
 
 type Props = {
   data: { url: string; title: string; description: string };
@@ -32,7 +32,8 @@ const Container = styled.div`
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 
   &:hover {
-    width: 120px;
+    width: fit-content;
+    min-width: 120px;
     height: 150px;
     align-items: center;
     justify-content: flex-start;

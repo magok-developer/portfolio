@@ -1,5 +1,5 @@
-import { darkTheme, mainColor } from "@/styles/themes";
-import styled from "styled-components";
+import { darkTheme, mainColor } from '@/styles/themes';
+import styled from 'styled-components';
 
 type Props = {
   onClick: () => void;
@@ -9,13 +9,7 @@ type Props = {
 const ThemeToggle = ({ onClick, isChecked }: Props) => {
   return (
     <>
-      <Checkbox
-        type='checkbox'
-        id='toggle'
-        onClick={onClick}
-        checked={isChecked}
-        readOnly
-      />
+      <Checkbox type="checkbox" id="toggle" onClick={onClick} checked={isChecked} readOnly />
     </>
   );
 };
@@ -25,14 +19,14 @@ export default ThemeToggle;
 const Checkbox = styled.input`
   width: 2.5rem;
   height: 20px;
-  background: white;
+  background: #edede9;
   border-radius: 1em;
   position: relative;
 
-  accent-color: rgba(0, 0, 0, 0);
+  accent-color: #edede9;
 
   &::before {
-    content: "";
+    content: '';
     text-align: center;
     line-height: 25px;
     width: 50px;
@@ -46,7 +40,7 @@ const Checkbox = styled.input`
   }
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     position: relative;
     width: 20px;
@@ -61,10 +55,10 @@ const Checkbox = styled.input`
 
   &:checked {
     &::before {
-      background-color: ${mainColor.gray};
+      background-color: #bbbbbb;
     }
     &::after {
-      background-color: white;
+      background-color: #edede9;
       left: calc(100% - 12.5px);
       cursor: pointer;
     }
