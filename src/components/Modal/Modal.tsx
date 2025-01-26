@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import { ProjectData } from '../Swiper/Swiper';
 import Image from 'next/image';
 import { mainColor } from '@/styles/themes';
@@ -12,6 +12,7 @@ type ModalProps = {
 };
 
 const Modal = ({ isOpen, onClose, data }: ModalProps) => {
+  const { theme } = useThemeStore();
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'; // 페이지 스크롤 막기
@@ -24,18 +25,17 @@ const Modal = ({ isOpen, onClose, data }: ModalProps) => {
     };
   }, [isOpen]);
   if (!isOpen) return null;
-  const { theme, toggleTheme, setTheme } = useThemeStore();
 
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()} isDark={theme}>
         <CloseButton onClick={onClose}>×</CloseButton>
-        <TopSection>
+        <TopSection isDark={theme}>
           <span className="title">{data.title}</span>
           <span className="period">{data.period}</span>
           <div className="stack">
             {data.stack.map((s) => (
-              <img src={s.url} alt={s.url} />
+              <img key={s.url} src={s.url} alt={s.url} />
             ))}
           </div>
           <span className="intro">{data.intro}</span>
@@ -44,8 +44,8 @@ const Modal = ({ isOpen, onClose, data }: ModalProps) => {
               <Image
                 src={theme === 'dark' ? '/image/skill/github-white.svg' : '/image/skill/github-black.svg'}
                 alt="git"
-                width={24}
-                height={24}
+                width={20}
+                height={20}
               />
             </a>
             {data.url === '' ? (
@@ -62,23 +62,23 @@ const Modal = ({ isOpen, onClose, data }: ModalProps) => {
             )}
           </div>
         </TopSection>
-        <Line />
+
         <BottomSection>
           <Planning>
             <div className="title-wrap">
-              <Image src="/icon/planning.svg" alt="planning" width={24} height={24} />
+              <Image src="/icon/planning.svg" alt="planning" width={20} height={20} />
               <div className="title">기획</div>
             </div>
             <div className="text">{data.planning}</div>
           </Planning>
           <MyPage>
             <div className="title-wrap">
-              <Image src="/icon/page.svg" alt="planning" width={26} height={26} />
+              <Image src="/icon/page.svg" alt="planning" width={22} height={22} />
               <div className="title">구현 페이지</div>
             </div>
 
-            {data.myPage.map((m) => (
-              <div className="text-wrap">
+            {data.myPage.map((m, index) => (
+              <div className="text-wrap" key={index}>
                 <div className="dot" />
                 <div className="text">{m.text}</div>
               </div>
@@ -86,12 +86,12 @@ const Modal = ({ isOpen, onClose, data }: ModalProps) => {
           </MyPage>
           <Get>
             <div className="title-wrap">
-              <Image src="/icon/emotion.svg" alt="planning" width={22} height={22} />
+              <Image src="/icon/emotion.svg" alt="planning" width={18} height={18} />
               <div className="title">느낀점</div>
             </div>
 
-            {data.get.map((g) => (
-              <div className="text-wrap">
+            {data.get.map((g, index) => (
+              <div className="text-wrap" key={index}>
                 <div className="dot" />
                 <div className="text">{g.text}</div>
               </div>
@@ -120,42 +120,35 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div<{ isDark: string }>`
   width: 90%;
-  height: 90%;
+  max-height: 90vh;
   background-color: ${({ isDark }) => (isDark === 'dark' ? '#1D1B1B' : '#EDEDE9')};
   position: relative;
   border-radius: 8px;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
   z-index: 9999;
-  overflow: auto;
-
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${mainColor.blue};
-    border-radius: 4px;
-    background-clip: padding-box;
-    border: 1px solid transparent;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: ${mainColor.gray};
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 5px white;
-  }
 `;
 
-const TopSection = styled.div`
+const TopSection = styled.div<{ isDark: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid ${mainColor.lightGray};
+  background-color: ${({ isDark }) => (isDark === 'dark' ? '#1D1B1B' : '#EDEDE9')};
+  z-index: 1;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 
   .title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
   }
   .period {
-    font-size: 12px;
+    font-size: 10px;
   }
   .stack {
     display: flex;
@@ -163,11 +156,11 @@ const TopSection = styled.div`
 
     gap: 8px;
     img {
-      width: 24px;
+      width: 20px;
     }
   }
   .intro {
-    font-size: 14px;
+    font-size: 12px;
   }
   .image {
     display: flex;
@@ -184,53 +177,79 @@ const CloseButton = styled.div`
   border: none;
   font-size: 12px;
   cursor: pointer;
-`;
-
-const Line = styled.div`
-  margin: 20px 0;
-  width: 100%;
-  height: 0.6px;
-  background-color: ${mainColor.lightGray};
+  z-index: 2;
+  font-weight: bold;
 `;
 
 const BottomSection = styled.div`
+  flex: 1;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 20px 40px;
+  padding: 20px 40px 30px 40px;
+  overflow-y: auto;
 
-  .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: ${mainColor.skyBlue};
-  }
   .title-wrap {
     display: flex;
     gap: 12px;
-    margin-bottom: 12px;
   }
+
   .title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
   }
+
   .text-wrap {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    align-items: flex-start;
   }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    margin-right: 20px;
+    margin-top: 4px;
+    background-color: ${mainColor.skyBlue};
+  }
+
   .text {
-    font-size: 14px;
+    font-size: 12px;
     white-space: pre-wrap;
-    line-height: 20px;
+    line-height: 16px;
+    width: 100%;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${mainColor.blue};
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: none;
+    /* border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white; */
   }
 `;
 
-const Planning = styled.div``;
+const Planning = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
 
-const MyPage = styled.div``;
+const MyPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
 
-const Get = styled.div``;
+const Get = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
