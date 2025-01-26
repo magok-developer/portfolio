@@ -1,17 +1,15 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Scrollbar, Autoplay } from "swiper/modules";
-import SwiperCore from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-import { EffectCoverflow, Pagination } from "swiper/modules";
-import styled from "styled-components";
-import { mainColor } from "@/styles/themes";
-import Modal from "../Modal/Modal";
-import { projectData } from "../../../public/data/projectData";
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+import styled from 'styled-components';
+import { mainColor } from '@/styles/themes';
+import Modal from '../Modal/Modal';
+import { projectData } from '../../../public/data/projectData';
 
 export type ProjectData = {
   id: number;
@@ -27,14 +25,10 @@ export type ProjectData = {
   git: string;
   url: string;
 };
-type Props = {
-  data: ProjectData[];
-};
 
 const SwiperComponent = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedImageData, setSelectedImageData] =
-    useState<ProjectData | null>(null);
+  const [selectedImageData, setSelectedImageData] = useState<ProjectData | null>(null);
 
   const handleImageClick = (image: ProjectData) => {
     setSelectedImageData(image);
@@ -49,9 +43,9 @@ const SwiperComponent = () => {
     <Container>
       <Swiper
         loop={true}
-        effect={"coverflow"}
+        effect={'coverflow'}
         centeredSlides={true}
-        slidesPerView={"auto"}
+        slidesPerView={'auto'}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -68,7 +62,7 @@ const SwiperComponent = () => {
           modifier: 1,
           slideShadows: true,
         }}
-        className='mySwiper'
+        className="mySwiper"
       >
         {projectData.map((d) => (
           <SwiperSlide key={d.id}>
@@ -77,13 +71,7 @@ const SwiperComponent = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {selectedImageData && (
-        <Modal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          data={selectedImageData}
-        />
-      )}
+      {selectedImageData && <Modal isOpen={isModalOpen} onClose={closeModal} data={selectedImageData} />}
     </Container>
   );
 };
@@ -93,8 +81,8 @@ export default SwiperComponent;
 const Container = styled.div`
   .swiper {
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 
   .swiper-slide {
