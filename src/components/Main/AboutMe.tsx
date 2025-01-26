@@ -28,28 +28,40 @@ const AboutMe = () => {
           </div>
           <div className="about-wrap-career">
             <span className="title">Career</span>
-            <TimeLine theme={theme}>
+            <CareerTimeLine theme={theme}>
               <div className="line-wrapper">
                 <div className="line" />
               </div>
-              <div className="career">
-                <span className="career-content">
+              <CareerContainer>
+                <CareerContentDotWrap>
                   <div className="dot dot1" />
-                  Builton, Pro<span className="none-dev">non-development</span>
-                  <span className="period">2019.08 ~ 2023.08</span>
-                </span>
-                <span className="career-content">
+                  <CareerContent>
+                    <span>
+                      Builton <span className="period">2019.08 ~ 2023.08</span>
+                    </span>
+                    Data Center, Pro<span className="none-dev">non-development</span>
+                  </CareerContent>
+                </CareerContentDotWrap>
+                <CareerContentDotWrap>
                   <div className="dot dot2" />
-                  Terra International, Research Engineer
-                  <span className="period">2024.06 ~ 2024.10</span>
-                </span>
-                <span className="career-content">
+                  <CareerContent>
+                    <span>
+                      Terra International <span className="period">2024.06 ~ 2024.10</span>
+                    </span>
+                    Research Engineer, Researcher (Frontend Developer)
+                  </CareerContent>
+                </CareerContentDotWrap>
+                <CareerContentDotWrap>
                   <div className="dot dot3" />
-                  Wemeet Mobility, Interface Engineering
-                  <span className="period">2024.11 ~ </span>
-                </span>
-              </div>
-            </TimeLine>
+                  <CareerContent>
+                    <span>
+                      Wemeet Mobility <span className="period">2024.11 ~ </span>
+                    </span>
+                    Interface Engineering, Manager (Frontend Developer)
+                  </CareerContent>
+                </CareerContentDotWrap>
+              </CareerContainer>
+            </CareerTimeLine>
           </div>
         </LeftSection>
         <img src="image/증명사진-light.png" alt="photo" className="id-photo" />
@@ -61,16 +73,15 @@ const AboutMe = () => {
 export default AboutMe;
 
 const Container = styled.div`
-  height: 100%;
-  margin-bottom: 180px;
+  height: 400px;
+  margin: 80px 0;
 `;
 
 const AboutMeWrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 50px;
+  align-items: flex-start;
 
   .id-photo {
     width: 17vw;
@@ -110,12 +121,13 @@ const LeftSection = styled.div`
   }
 
   .period {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     color: ${mainColor.skyBlue};
+    margin-left: 0.3rem;
   }
 `;
 
-const TimeLine = styled.div<{ theme: string }>`
+const CareerTimeLine = styled.div<{ theme: string }>`
   display: flex;
   height: 100%;
   position: relative;
@@ -160,23 +172,29 @@ const TimeLine = styled.div<{ theme: string }>`
     border: 3px solid ${mainColor.blue};
   }
 
-  .career {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 6px 0px 6px 16px;
-    gap: 1.5rem;
-  }
-
   .none-dev {
     font-size: 0.6rem;
     color: ${mainColor.red};
   }
+`;
 
-  .career-content {
-    font-size: 1.2vw;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+const CareerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6px 0px 6px 16px;
+  gap: 1.5rem;
+`;
+
+const CareerContentDotWrap = styled.div`
+  font-size: 1.2vw;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+`;
+
+const CareerContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
