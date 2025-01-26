@@ -39,16 +39,16 @@ export const projectData = [
     id: 1,
     src: "/image/project-image/whiteRabbit.png",
     title: "White Rabbit",
-    period: "2023.10.2 ~ 2023.10.13",
+    period: "23.11.13 ~ 23.12.01",
     team: "팀 프로젝트",
     position: "frontend",
     stack: [
-      { url: "/image/skill/html.svg" },
-      { url: "/image/skill/css.svg" },
       { url: "/image/skill/js.svg" },
+      { url: "/image/skill/react.svg" },
+      { url: "/image/skill/StyledComponents.svg" },
     ],
     intro:
-      "4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.",
+      "4개월간 진행된 부트캠프에서 2차로 진행한 팀 프로젝트 입니다. 프로젝트는 3주간 진행 되었으며, 최종적으로 우수상을 수상하였습니다.",
     planning:
       "모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.",
     myPage: [
