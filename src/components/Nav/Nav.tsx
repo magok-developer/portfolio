@@ -1,15 +1,30 @@
-import { mainColor } from "@/styles/themes";
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Nav = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      const offsetTop = section.offsetTop - 120;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <Container>
-      <span title='About Me'>About Me</span>
-
-      <span title='Stacks'>Stacks</span>
-
-      <span title='Projects'>Projects</span>
+      <span title="About Me" onClick={() => scrollToSection('aboutMe')}>
+        About Me
+      </span>
+      <span title="Stacks" onClick={() => scrollToSection('stacks')}>
+        Stacks
+      </span>
+      <span title="Projects" onClick={() => scrollToSection('projects')}>
+        Projects
+      </span>
     </Container>
   );
 };
@@ -25,6 +40,7 @@ const Container = styled.nav`
   height: 20%;
   font-size: 1.5vw;
   font-weight: bold;
+
   span {
     position: relative;
     text-align: center;
@@ -34,8 +50,8 @@ const Container = styled.nav`
 
   span::after {
     position: absolute;
-    content: "";
-    border-bottom: 2px solid ${mainColor.yellow};
+    content: '';
+    border-bottom: 2px solid #ffcc00; // 예시로 노란색으로 설정
     transition: width 0.3s ease-out;
     bottom: 0;
     left: auto;
