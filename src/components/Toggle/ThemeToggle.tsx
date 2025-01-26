@@ -1,4 +1,4 @@
-import { darkTheme, mainColor } from '@/styles/themes';
+import { mainColor } from '@/styles/themes';
 import styled from 'styled-components';
 
 type Props = {

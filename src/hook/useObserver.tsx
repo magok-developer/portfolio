@@ -1,14 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
-export const useObserver = (
-  navName: string,
-  setNavName: React.Dispatch<React.SetStateAction<string>>
-) => {
+export const useObserver = (navName: string, setNavName: React.Dispatch<React.SetStateAction<string>>) => {
   const options = { threshold: 0.1 };
   const refElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         setNavName(navName);
       }
