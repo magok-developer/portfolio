@@ -42,6 +42,6 @@ const RootContainer = ({ children }: { children: React.ReactNode }) => {
 export default RootContainer;
 
 const Body = styled.div`
-  padding: 80px;
+  padding: 120px 80px 0px 80px;
   position: relative;
 `;
