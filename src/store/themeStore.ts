@@ -7,7 +7,7 @@ type ThemeStore = {
 };
 
 export const useThemeStore = create<ThemeStore>((set) => ({
-  theme: 'dark', // 기본 테마 설정
+  theme: 'dark',
   toggleTheme: () =>
     set((state) => ({
       theme: state.theme === 'light' ? 'dark' : 'light',

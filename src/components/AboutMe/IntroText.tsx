@@ -31,7 +31,6 @@ export const IntroText = ({ id }: IntroTextProps) => {
       }
     });
 
-    // clean up function
     return () => {
       contentRefs.current.forEach((content) => {
         if (content) {

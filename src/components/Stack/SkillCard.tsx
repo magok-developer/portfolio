@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-// 기본 타입 정의
 export type BaseItemData = {
   url: string;
   title: string;
 };
 
-// description이 있는 확장 타입 정의
 export type WithDescriptionData = BaseItemData & {
   description: string;
 };

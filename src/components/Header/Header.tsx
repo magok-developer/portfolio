@@ -33,7 +33,7 @@ const Header = ({ onClick, isChecked }: Props) => {
             linkedin
           </a>
 
-          <a href="https://giddy-product-b00.notion.site/1248f4226cca4b8aaf0d694951985aad" target="_blank">
+          <a href="https://giddy-product-b00.notion.site/1201267a5d6180259c3ccfea7b59811b" target="_blank">
             resume
           </a>
         </LinkWrap>

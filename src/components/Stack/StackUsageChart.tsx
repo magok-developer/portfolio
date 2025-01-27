@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import React, { useEffect, useRef, useState } from 'react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, TooltipProps } from 'recharts';
 import { getProjectData } from '../../../public/data/projectData';
 import { ProjectData } from '../Project/ProjectFadeVersion';
 import styled from 'styled-components';
 import { useThemeStore } from '@/store/themeStore';
+import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
 
 type ChartData = {
   name: string;
@@ -22,6 +23,16 @@ const COLORS = [
   '#4B088A',
   '#045FB4',
 ];
+
+type CustomTooltipProps = TooltipProps<ValueType, NameType> & {
+  payload?: {
+    payload: {
+      name: string;
+      value: number;
+      fill: string;
+    };
+  }[];
+};
 
 const extractStackUsage = (projectData: ProjectData[]): ChartData[] => {
   const allStacks = projectData.reduce<string[]>((acc, project) => {
@@ -44,7 +55,7 @@ const extractStackUsage = (projectData: ProjectData[]): ChartData[] => {
 };
 
 // 커스텀 툴팁 컴포넌트
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   const { theme } = useThemeStore();
   if (active && payload && payload.length) {
     const data = payload[0].payload;
@@ -76,14 +87,11 @@ const StackUsageChart = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // 보이기 시작할 때 즉시 한 번 리사이즈
             setKey((prev) => prev + 1);
 
-            // 리사이즈 핸들러 등록
             resizeHandler = () => setKey((prev) => prev + 1);
             window.addEventListener('resize', resizeHandler);
           } else {
-            // 화면에서 벗어날 때 리사이즈 핸들러 제거
             if (resizeHandler) {
               window.removeEventListener('resize', resizeHandler);
               resizeHandler = null;
@@ -102,7 +110,7 @@ const StackUsageChart = () => {
       if (containerRef.current) {
         observer.unobserve(containerRef.current);
       }
-      // 클린업 시 리사이즈 핸들러가 남아있다면 제거
+
       if (resizeHandler) {
         window.removeEventListener('resize', resizeHandler);
       }

@@ -1,4 +1,3 @@
-import { useThemeStore } from '@/store/themeStore';
 import { mainColor } from '@/styles/themes';
 import React from 'react';
 import styled from 'styled-components';

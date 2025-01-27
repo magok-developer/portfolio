@@ -1,3 +1,4 @@
+import { mainColor } from '@/styles/themes';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -51,7 +52,7 @@ const Container = styled.nav`
   span::after {
     position: absolute;
     content: '';
-    border-bottom: 2px solid #ffcc00; // 예시로 노란색으로 설정
+    border-bottom: 2px solid ${mainColor.yellow};
     transition: width 0.3s ease-out;
     bottom: 0;
     left: auto;

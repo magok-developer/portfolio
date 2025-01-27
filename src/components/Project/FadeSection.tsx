@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Title } from '../Text/Title';
 
 type FadeSectionProps = {
   children: React.ReactNode;
