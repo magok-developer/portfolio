@@ -47,8 +47,8 @@ const FadeWrapper = styled.div<{ isEven: boolean }>`
   opacity: 0;
   position: relative;
   left: ${({ isEven }) => (isEven ? '-60px' : '60px')};
-  margin-bottom: -80px;
-  width: 80%;
+  margin-bottom: 40px;
+  width: 100%;
 
   &.fade-in {
     opacity: 1;
