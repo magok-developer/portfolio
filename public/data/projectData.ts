@@ -8,24 +8,9 @@ export const getProjectData = (theme: string) => [
     position: 'frontend',
     stack: ['HTML', 'CSS', 'JavaScript'],
     intro: '쇼핑몰 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
     git: 'https://github.com/magok-developer/Rebirth',
     url: '',
+    notion: 'https://giddy-product-b00.notion.site/Re-Birth-0cfd02c7f289451b98566a6185713123',
   },
   {
     id: 1,
@@ -36,27 +21,9 @@ export const getProjectData = (theme: string) => [
     position: 'frontend',
     stack: ['JavaScript', 'React', 'Styled-Components'],
     intro: '개발자 커뮤니티 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '구현하는 과정에서 바닐라 자바스크립트를 사용했고, innerHTML을 사용하는 빈도가 많았습니다. 코치님께서 innerHTML은 XSS(Cross-Site-Scripting) 공격에 취약하며, 악의적인 스크립트가 실행될 가능성이 있고, 대량의 데이터를 처리할 때 성능이 저하된다며 사용을 지양해야하는 이유을 알려주셨고 좋은 경험이 되었습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
     git: 'https://github.com/magok-developer/WhiteRabbit',
     url: '',
+    notion: 'https://giddy-product-b00.notion.site/White-Rabbit-2eeb9afd2ccc47928b56f660bfbe6102',
   },
   {
     id: 2,
@@ -67,27 +34,9 @@ export const getProjectData = (theme: string) => [
     position: 'frontend',
     stack: ['TypeScript', 'Next.js', 'React-Query', 'Zustand', 'Emotion'],
     intro: '사이드 프로젝트 플랫폼 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '구현하는 과정에서 바닐라 자바스크립트를 사용했고, innerHTML을 사용하는 빈도가 많았습니다. 코치님께서 innerHTML은 XSS(Cross-Site-Scripting) 공격에 취약하며, 악의적인 스크립트가 실행될 가능성이 있고, 대량의 데이터를 처리할 때 성능이 저하된다며 사용을 지양해야하는 이유을 알려주셨고 좋은 경험이 되었습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
     git: 'https://github.com/siderTeam/FrontEnd-Service',
     url: '',
+    notion: 'https://giddy-product-b00.notion.site/SideGo-b2c6d92e06cb4ed5a67145156f35cb03',
   },
   {
     id: 3,
@@ -98,27 +47,9 @@ export const getProjectData = (theme: string) => [
     position: 'frontend',
     stack: ['TypeScript', 'Next.js', 'Emotion'],
     intro: '2024년도 포트폴리오 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '구현하는 과정에서 바닐라 자바스크립트를 사용했고, innerHTML을 사용하는 빈도가 많았습니다. 코치님께서 innerHTML은 XSS(Cross-Site-Scripting) 공격에 취약하며, 악의적인 스크립트가 실행될 가능성이 있고, 대량의 데이터를 처리할 때 성능이 저하된다며 사용을 지양해야하는 이유을 알려주셨고 좋은 경험이 되었습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
     git: 'https://github.com/magok-developer/About-Me',
     url: 'https://jw-pf.vercel.app/',
+    notion: 'https://giddy-product-b00.notion.site/About-Me-13f94b3a6032445592c72026d57869c6',
   },
   {
     id: 4,
@@ -129,27 +60,9 @@ export const getProjectData = (theme: string) => [
     position: 'frontend',
     stack: ['TypeScript', 'Next.js', 'Emotion', 'Zustand'],
     intro: 'Todo & Diary 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '구현하는 과정에서 바닐라 자바스크립트를 사용했고, innerHTML을 사용하는 빈도가 많았습니다. 코치님께서 innerHTML은 XSS(Cross-Site-Scripting) 공격에 취약하며, 악의적인 스크립트가 실행될 가능성이 있고, 대량의 데이터를 처리할 때 성능이 저하된다며 사용을 지양해야하는 이유을 알려주셨고 좋은 경험이 되었습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
     git: 'https://github.com/magok-developer/Todo-project',
     url: 'https://todo-project-puce.vercel.app/',
+    notion: 'https://giddy-product-b00.notion.site/Todo-Diary-0bb779e056794c63b43e5c5374ecb3b4',
   },
   {
     id: 5,
@@ -160,89 +73,47 @@ export const getProjectData = (theme: string) => [
     position: 'frontend',
     stack: ['TypeScript', 'Next.js', 'Emotion', 'React-Query'],
     intro: '청약 지도 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '구현하는 과정에서 바닐라 자바스크립트를 사용했고, innerHTML을 사용하는 빈도가 많았습니다. 코치님께서 innerHTML은 XSS(Cross-Site-Scripting) 공격에 취약하며, 악의적인 스크립트가 실행될 가능성이 있고, 대량의 데이터를 처리할 때 성능이 저하된다며 사용을 지양해야하는 이유을 알려주셨고 좋은 경험이 되었습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
     git: 'https://github.com/magok-developer/myHome-project',
     url: 'https://my-home-project.vercel.app/',
+    notion: 'https://giddy-product-b00.notion.site/My-Home-1afaef8d6633474da6f584cd70e74d93',
   },
   {
     id: 6,
+    src: '/image/project/avw.png',
+    title: '풍력발전 조류탐지 AI 솔루션 UI 개발',
+    period: '24.06 ~ 24.10',
+    team: '사내 프로젝트',
+    position: 'frontend',
+    stack: ['TypeScript', 'React', 'SCSS', 'Recharts', 'Cytoscape.js'],
+    intro: '테라 인터내셔널 사내 프로젝트',
+    git: 'https://github.com/magok-developer/Rebirth',
+    url: '',
+    notion: 'https://giddy-product-b00.notion.site/AI-UI-1881267a5d6180f1ae66c2d00611f6d5',
+  },
+  {
+    id: 7,
     src: '/image/project/illy.png',
     title: 'Illy',
     period: '24.06.17 ~ 24.10.11',
     team: '사내 OJT 프로젝트',
     position: 'frontend',
     stack: ['TypeScript', 'Next.js', 'Emotion', 'React-Query'],
-    intro: '사내 연구원들의 일일 리소스 관리 및 통계 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '구현하는 과정에서 바닐라 자바스크립트를 사용했고, innerHTML을 사용하는 빈도가 많았습니다. 코치님께서 innerHTML은 XSS(Cross-Site-Scripting) 공격에 취약하며, 악의적인 스크립트가 실행될 가능성이 있고, 대량의 데이터를 처리할 때 성능이 저하된다며 사용을 지양해야하는 이유을 알려주셨고 좋은 경험이 되었습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
+    intro: '테라 인터내셔널 사내 연구원들의 일일 리소스 관리 및 통계 프로젝트',
     git: 'https://github.com/magok-developer/Rebirth',
     url: '',
+    notion: 'https://giddy-product-b00.notion.site/ILLY-1881267a5d618007b962eedbc54eed83',
   },
-
   {
-    id: 7,
+    id: 8,
     src: '/image/project/portfolio.png',
     title: 'Portfolio',
-    period: '24.06.17 ~ 24.10.11',
-    team: '사내 OJT 프로젝트',
+    period: '25.01.25 ~ 25.01.28',
+    team: '개인 프로젝트',
     position: 'frontend',
     stack: ['TypeScript', 'Next.js', 'Styled-Components', 'React-Query'],
     intro: '2025년도 포트폴리오 프로젝트',
-    planning:
-      '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
-    myPage: [
-      { text: '장바구니와 비회원, 회원 주문 조회를 담당했습니다.' },
-      {
-        text: '장바구니는 백엔드가 아닌 프론트엔드에서 관리해야 했기에, 관련 데이터를 localStorage를 활용하여 유저가 장바구니에 추가한 상품을 관리했습니다.',
-      },
-    ],
-    get: [
-      {
-        text: '해당 프로젝트를 통해 git을 처음 사용해보며 버전 관리의 중요성을 깨달았습니다.',
-      },
-      {
-        text: '구현하는 과정에서 바닐라 자바스크립트를 사용했고, innerHTML을 사용하는 빈도가 많았습니다. 코치님께서 innerHTML은 XSS(Cross-Site-Scripting) 공격에 취약하며, 악의적인 스크립트가 실행될 가능성이 있고, 대량의 데이터를 처리할 때 성능이 저하된다며 사용을 지양해야하는 이유을 알려주셨고 좋은 경험이 되었습니다.',
-      },
-      {
-        text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
-      },
-    ],
     git: 'https://github.com/magok-developer/Rebirth',
     url: '',
+    notion: 'https://giddy-product-b00.notion.site/Portfolio-1881267a5d6180b391c4d9a6a7196299',
   },
 ];

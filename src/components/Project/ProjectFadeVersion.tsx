@@ -2,11 +2,9 @@ import styled from 'styled-components';
 import FadeSection from './FadeSection';
 import { getProjectData } from '../../../public/data/projectData';
 import { Title } from '../Text/Title';
-import { useState } from 'react';
-import Modal from '../Modal/Modal';
 import Image from 'next/image';
 import { useThemeStore } from '@/store/themeStore';
-import { mainColor } from '@/styles/themes';
+import { useRouter } from 'next/navigation';
 
 type ProjectFadeVersionProps = {
   id: string;
@@ -20,28 +18,20 @@ export type ProjectData = {
   position: string;
   stack: string[];
   intro: string;
-  planning: string;
-  myPage: { text: string }[];
-  get: { text: string }[];
   git: string;
   url: string;
+  notion: string;
 };
 
 export const ProjectFadeVersion = ({ id }: ProjectFadeVersionProps) => {
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedImageData, setSelectedImageData] = useState<ProjectData | null>(null);
   const { theme } = useThemeStore();
   const currentProjectData = getProjectData(theme);
+  const route = useRouter();
 
-  const handleImageClick = (image: ProjectData) => {
-    setSelectedImageData(image);
-    setModalOpen(true);
+  const handleImageClick = (notion: string) => {
+    route.push(notion);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
-    setSelectedImageData(null);
-  };
   return (
     <div id={id}>
       <Title title="Projects" />
@@ -49,7 +39,7 @@ export const ProjectFadeVersion = ({ id }: ProjectFadeVersionProps) => {
         {currentProjectData.map((data, index) => (
           <FadeSection key={index} index={index}>
             <ProjectWrapper isEven={index % 2 === 0}>
-              <img src={data.src} alt={data.title} className="mainImg" onClick={() => handleImageClick(data)} />
+              <img src={data.src} alt={data.title} className="mainImg" onClick={() => handleImageClick(data.notion)} />
               <ProjectTextWrapper isEven={index % 2 === 0}>
                 <h3>{data.title}</h3>
                 <span className="intro">{data.intro}</span>
@@ -86,7 +76,6 @@ export const ProjectFadeVersion = ({ id }: ProjectFadeVersionProps) => {
           </FadeSection>
         ))}
       </Container>
-      {selectedImageData && <Modal isOpen={isModalOpen} onClose={closeModal} data={selectedImageData} />}
     </div>
   );
 };
@@ -96,7 +85,7 @@ const Container = styled.div<{ theme: string }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 1700px;
+  height: 1900px;
 
   .mainImg {
     width: 300px;
