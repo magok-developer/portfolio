@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { ProjectData } from '../Swiper/Swiper';
+
 import Image from 'next/image';
 import { mainColor } from '@/styles/themes';
 import { useThemeStore } from '@/store/themeStore';
+import { ProjectData } from '../Project/ProjectFadeVersion';
 
 type ModalProps = {
   isOpen: boolean;
@@ -35,7 +36,7 @@ const Modal = ({ isOpen, onClose, data }: ModalProps) => {
           <span className="period">{data.period}</span>
           <div className="stack">
             {data.stack.map((s) => (
-              <img key={s.url} src={s.url} alt={s.url} />
+              <span>{s}</span>
             ))}
           </div>
           <span className="intro">{data.intro}</span>
@@ -153,11 +154,8 @@ const TopSection = styled.div<{ isDark: string }>`
   .stack {
     display: flex;
     align-items: center;
-
     gap: 8px;
-    img {
-      width: 20px;
-    }
+    font-size: 10px;
   }
   .intro {
     font-size: 12px;
