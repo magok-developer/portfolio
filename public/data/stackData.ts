@@ -81,7 +81,7 @@ export const getToolData = (theme: string) => [
     title: 'Github',
   },
   {
-    url: '/image/skill/gitlab.svg',
+    url: '/image/skill/GitLab.svg',
     title: 'Gitlab',
   },
   {
