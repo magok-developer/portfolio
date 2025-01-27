@@ -1,14 +1,13 @@
-export const projectData = [
+export const getProjectData = (theme: string) => [
   {
     id: 0,
-    src: '/image/project-image/reBirth.png',
+    src: '/image/project/reBirth.png',
     title: 'Re:Birth',
-    period: '2023.10.2 ~ 2023.10.13',
+    period: '23.10.2 ~ 23.10.13',
     team: '팀 프로젝트',
     position: 'frontend',
-    stack: [{ url: '/image/skill/html.svg' }, { url: '/image/skill/css.svg' }, { url: '/image/skill/js.svg' }],
-    intro:
-      '4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    intro: '쇼핑몰 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
@@ -30,18 +29,13 @@ export const projectData = [
   },
   {
     id: 1,
-    src: '/image/project-image/whiteRabbit.png',
+    src: '/image/project/whiteRabbit.png',
     title: 'White Rabbit',
     period: '23.11.13 ~ 23.12.01',
     team: '팀 프로젝트',
     position: 'frontend',
-    stack: [
-      { url: '/image/skill/js.svg' },
-      { url: '/image/skill/react.svg' },
-      { url: '/image/skill/StyledComponents.svg' },
-    ],
-    intro:
-      '4개월간 진행된 부트캠프에서 2차로 진행한 팀 프로젝트 입니다. 프로젝트는 3주간 진행 되었으며, 최종적으로 우수상을 수상하였습니다.',
+    stack: ['JavaScript', 'React', 'Styled-Components'],
+    intro: '개발자 커뮤니티 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
@@ -61,19 +55,18 @@ export const projectData = [
         text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
       },
     ],
-    git: 'https://github.com/magok-developer/Rebirth',
+    git: 'https://github.com/magok-developer/WhiteRabbit',
     url: '',
   },
   {
     id: 2,
-    src: '/image/project-image/sideGo.png',
+    src: '/image/project/sideGo.png',
     title: 'Side Go',
-    period: '2023.10.2 ~ 2023.10.13',
+    period: '24.02 ~ 24.05',
     team: '팀 프로젝트',
     position: 'frontend',
-    stack: [{ url: '/image/skill/html.svg' }, { url: '/image/skill/css.svg' }, { url: '/image/skill/js.svg' }],
-    intro:
-      '4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.',
+    stack: ['TypeScript', 'Next.js', 'React-Query', 'Zustand', 'Emotion'],
+    intro: '사이드 프로젝트 플랫폼 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
@@ -93,19 +86,18 @@ export const projectData = [
         text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
       },
     ],
-    git: 'https://github.com/magok-developer/Rebirth',
+    git: 'https://github.com/siderTeam/FrontEnd-Service',
     url: '',
   },
   {
     id: 3,
-    src: '/image/project-image/aboutMe.png',
+    src: '/image/project/aboutMe.png',
     title: 'About Me',
-    period: '2023.10.2 ~ 2023.10.13',
-    team: '팀 프로젝트',
+    period: '24.03.25 ~ 24.03.31',
+    team: '개인 프로젝트',
     position: 'frontend',
-    stack: [{ url: '/image/skill/html.svg' }, { url: '/image/skill/css.svg' }, { url: '/image/skill/js.svg' }],
-    intro:
-      '4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.',
+    stack: ['TypeScript', 'Next.js', 'Emotion'],
+    intro: '2024년도 포트폴리오 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
@@ -125,19 +117,18 @@ export const projectData = [
         text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
       },
     ],
-    git: 'https://github.com/magok-developer/Rebirth',
-    url: '',
+    git: 'https://github.com/magok-developer/About-Me',
+    url: 'https://jw-pf.vercel.app/',
   },
   {
     id: 4,
-    src: '/image/project-image/todo.png',
+    src: '/image/project/todo.png',
     title: 'Todo & Diary',
-    period: '2023.10.2 ~ 2023.10.13',
-    team: '팀 프로젝트',
+    period: '24.03.28 ~ 24.04.01',
+    team: '개인 프로젝트',
     position: 'frontend',
-    stack: [{ url: '/image/skill/html.svg' }, { url: '/image/skill/css.svg' }, { url: '/image/skill/js.svg' }],
-    intro:
-      '4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.',
+    stack: ['TypeScript', 'Next.js', 'Emotion', 'Zustand'],
+    intro: 'Todo & Diary 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
@@ -157,19 +148,18 @@ export const projectData = [
         text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
       },
     ],
-    git: 'https://github.com/magok-developer/Rebirth',
-    url: '',
+    git: 'https://github.com/magok-developer/Todo-project',
+    url: 'https://todo-project-puce.vercel.app/',
   },
   {
     id: 5,
-    src: '/image/project-image/myHome.png',
+    src: '/image/project/myHome.png',
     title: 'My Home',
-    period: '2023.10.2 ~ 2023.10.13',
-    team: '팀 프로젝트',
+    period: '24.04.01 ~ 24.05',
+    team: '개인 프로젝트',
     position: 'frontend',
-    stack: [{ url: '/image/skill/html.svg' }, { url: '/image/skill/css.svg' }, { url: '/image/skill/js.svg' }],
-    intro:
-      '4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.',
+    stack: ['TypeScript', 'Next.js', 'Emotion', 'React-Query'],
+    intro: '청약 지도 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
@@ -189,19 +179,18 @@ export const projectData = [
         text: '백엔드와 하는 첫 협업이었고, 처음엔 각자의 포지션에 대한 이해도가 낮았지만 좋은 팀워크 덕에 대상이라는 값진 상을 받을 수 있었습니다.',
       },
     ],
-    git: 'https://github.com/magok-developer/Rebirth',
-    url: '',
+    git: 'https://github.com/magok-developer/myHome-project',
+    url: 'https://my-home-project.vercel.app/',
   },
   {
     id: 6,
-    src: '/image/project-image/portfolio.png',
-    title: 'Portfolio',
-    period: '2023.10.2 ~ 2023.10.13',
-    team: '팀 프로젝트',
+    src: '/image/project/illy.png',
+    title: 'Illy',
+    period: '24.06.17 ~ 24.10.11',
+    team: '사내 OJT 프로젝트',
     position: 'frontend',
-    stack: [{ url: '/image/skill/html.svg' }, { url: '/image/skill/css.svg' }, { url: '/image/skill/js.svg' }],
-    intro:
-      '4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.',
+    stack: ['TypeScript', 'Next.js', 'Emotion', 'React-Query'],
+    intro: '사내 연구원들의 일일 리소스 관리 및 통계 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
@@ -224,16 +213,16 @@ export const projectData = [
     git: 'https://github.com/magok-developer/Rebirth',
     url: '',
   },
+
   {
     id: 7,
-    src: '/image/project-image/illy.png',
-    title: 'Illy',
-    period: '2023.10.2 ~ 2023.10.13',
-    team: '팀 프로젝트',
+    src: '/image/project/portfolio.png',
+    title: 'Portfolio',
+    period: '24.06.17 ~ 24.10.11',
+    team: '사내 OJT 프로젝트',
     position: 'frontend',
-    stack: [{ url: '/image/skill/html.svg' }, { url: '/image/skill/css.svg' }, { url: '/image/skill/js.svg' }],
-    intro:
-      '4개월간 진행된 부트캠프에서 1차로 진행한 팀 프로젝트 입니다. 프로젝트는 2주간 진행 되었으며, 최종적으로 대상을 수상하였습니다.',
+    stack: ['TypeScript', 'Next.js', 'Styled-Components', 'React-Query'],
+    intro: '2025년도 포트폴리오 프로젝트',
     planning:
       '모든 팀이 쇼핑몰이라는 공통 주제를 가지고 진행 하였으며, 제가 속했던 팀에서는 업사이클링 제품을 판매하는 쇼핑몰을 제작하였습니다.',
     myPage: [
